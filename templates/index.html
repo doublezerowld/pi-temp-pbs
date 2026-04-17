@@ -26,7 +26,7 @@
         <title>Czujnik Temperatury</title>
     </head>
     <body>
-        <header>
+        <header class="page-margin">
             <img
                 src="{{ url_for('static', filename='logo.png') }}"
                 alt="Logo PBS"
@@ -35,7 +35,7 @@
         <main>
             <section id="container">
                 <h1>{{ temp2f }} °C</h1>
-                <p>Ostatnia aktualizacja: {{ last_update }} CEST</p>
+                <p>Ostatnia aktualizacja: {{ last_update }}</p>
                 <button id="chart-toggle" class="fade-in" type="button">
                     Ukryj wykres
                 </button>
@@ -45,7 +45,7 @@
                 <script src="{{ url_for('static', filename='main.js') }}"></script>
             </section>
         </main>
-        <footer>
+        <footer class="page-margin">
             <div id="footer-elements" class="fade-in">
                 <p id="footer-text">© Jan Bartkowski</p>
                 <a href="https://github.com/OrdinarySoftwareDev">

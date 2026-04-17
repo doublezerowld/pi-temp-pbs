@@ -1,5 +1,6 @@
 :root {
-    --background-gradient: linear-gradient(#dfdada, #dcd8d8, #dfdada);
+    --background-gradient: linear-gradient(#dfdada, #ccc8c8, #dfdada);
+    --page-margin-color: #c2c0c0;
     --black-shadow: #00000042;
     font-size: 16px;
 }
@@ -80,6 +81,10 @@ footer {
     margin-left: 1rem;
     text-align: left;
     align-items: center;
+}
+
+.page-margin {
+    background-color: var(--page-margin-color);
 }
 
 .fade-in {

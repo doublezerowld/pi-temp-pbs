@@ -1,4 +1,5 @@
 import glob
+import logging
 import subprocess
 from pathlib import Path
 
@@ -9,7 +10,7 @@ DEVICES_DIR = "/sys/bus/w1/devices/"
 # Urządzenie działa na interfejsie 1-wire.
 def find_device():
     for c in ["gpio", "therm"]:
-        subprocess.run(f"w1-{c}", -1, "modprobe")
+        subprocess.run(["/usr/sbin/modprobe", f"w1-{c}"])
 
     device_folder = glob.glob(DEVICES_DIR + "28*")
     _len = len(device_folder)
@@ -44,5 +45,10 @@ class DS18B20:
         self.device_path = device_path
 
     def read(self) -> int:
+        logging.info("Odczytuję temperaturę z czujnika...")
         with open(self.device_path, "r") as data:
-            return int(data.readlines()[-1].split("=")[-1])
+            try:
+                return int(data.readlines()[-1].split("=")[-1])
+            except Exception as e:
+                logging.critical("Wystąpił błąd przy wczytywaniu danych z czujnika!", e)
+                return 0

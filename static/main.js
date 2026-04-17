@@ -48,7 +48,7 @@ new Chart(ctx, {
             y: {
                 ticks: {
                     callback: function (value, _, _) {
-                        return value.toFixed(1) + "°C";
+                        return value.toFixed(3) + "°C";
                     },
                 },
             },
