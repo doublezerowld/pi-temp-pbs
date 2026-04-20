@@ -157,9 +157,7 @@ def health():
     return jsonify(
         {
             "status": "healthy",
-            "latest_measurement": jsonify(latest_measurement)
-            if latest_measurement
-            else None,
+            "latest_measurement": latest_measurement if latest_measurement else None,
             "jobs": len(scheduler.get_jobs()),
         }
     )

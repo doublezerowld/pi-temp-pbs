@@ -1,0 +1,9 @@
+[project]
+name = "pi-temp-pbs"
+description = "Full-stack DS18B20 temperature monitor written in Python"
+version = "1.0.0"
+requires-python = ">= 3.13.5"
+license-files = ["LICENSE"]
+
+[project.urls]
+Repository = "https://github.com/doublezerowld/pi-temp-pbs.git"
